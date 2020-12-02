@@ -1,5 +1,6 @@
 use std::io::BufRead;
 mod day01;
+mod day02;
 fn main() {
 
 	let day: i32 = std::io::stdin()
@@ -17,6 +18,10 @@ fn main() {
 			println!("Day01!\n");
 			day01::day01();
 		},
+		2 => {
+			println!("Day02!\n");
+			day02::day02();
+		}
         _ => println!("Ain't special"),
     }
 
