@@ -2,9 +2,9 @@
 
 ### Days Solutions ###
 
-* [Day 1](src/day01.rs)
-* Day 2
-* Day 3
+* [Day 1](src/day01.rs) | [Puzzle: Part A](in/day01) | [Puzzle: Part B](in/day01_b)
+* [Day 2](src/day02.rs) | [Puzzle](in/day02)
+* [Day 3](srd/day03.rs) | [Puzzle](in/day03)
 * Day 4
 * Day 5
 * Day 6
