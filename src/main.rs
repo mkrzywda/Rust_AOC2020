@@ -3,6 +3,7 @@ mod day01;
 mod day02;
 mod day03;
 mod day04;
+mod day05;
 fn main() {
 
 	let day: i32 = std::io::stdin()
@@ -31,6 +32,10 @@ fn main() {
         4 => {
             println!("Day04!\n");
             day04::day04();
+        },
+        5 => {
+            println!("Day05!\n");
+            day05::day05();
         }
         _ => println!("Ain't special"),
     }
