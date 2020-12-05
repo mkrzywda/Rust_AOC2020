@@ -4,9 +4,9 @@
 
 * [Day 1](src/day01.rs) | [Puzzle: Part A](in/day01) | [Puzzle: Part B](in/day01_b)
 * [Day 2](src/day02.rs) | [Puzzle](in/day02)
-* [Day 3](srd/day03.rs) | [Puzzle](in/day03)
-* [Day 4](srd/day04.rs) | [Puzzle](in/day04)
-* Day 5
+* [Day 3](src/day03.rs) | [Puzzle](in/day03)
+* [Day 4](src/day04.rs) | [Puzzle](in/day04)
+* [Day 5](src/day05.rs) | [Puzzle](in/day05)
 * Day 6
 * Day 7
 * Day 8
