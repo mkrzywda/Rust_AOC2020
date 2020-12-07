@@ -2,13 +2,13 @@
 
 ### Days Solutions ###
 
-* [Day 1](src/day01.rs) | [Puzzle: Part A](in/day01) | [Puzzle: Part B](in/day01_b)
-* [Day 2](src/day02.rs) | [Puzzle](in/day02)
-* [Day 3](src/day03.rs) | [Puzzle](in/day03)
-* [Day 4](src/day04.rs) | [Puzzle](in/day04)
-* [Day 5](src/day05.rs) | [Puzzle](in/day05)
-* [Day 6](src/day06.rs) | [Puzzle](in/day06)
-* Day 7
+* [Day 1](src/days/day01.rs) | [Puzzle: Part A](in/day01) | [Puzzle: Part B](in/day01_b)
+* [Day 2](src/days/day02.rs) | [Puzzle](in/day02)
+* [Day 3](src/days/day03.rs) | [Puzzle](in/day03)
+* [Day 4](src/days/src/day04.rs) | [Puzzle](in/day04)
+* [Day 5](src/days/day05.rs) | [Puzzle](in/day05)
+* [Day 6](src/days/day06.rs) | [Puzzle](in/day06)
+* [Day 7](src/days/day07.rs) | [Puzzle](in/day07)
 * Day 8
 * Day 9
 * Day 10
