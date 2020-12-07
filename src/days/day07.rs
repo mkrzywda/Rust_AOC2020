@@ -11,7 +11,7 @@ use regex::Regex;
 pub fn day07() -> Result<(), Box<dyn Error>> {
     let time = Instant::now();
 
-    let f = BufReader::new(File::open("/Users/administrator/aoc_sol/Advent-of-Code-2020/input/day07.txt").unwrap());
+    let f = BufReader::new(File::open("in/day07.txt").unwrap());
     let lines: Vec<String> = f.lines().collect::<Result<_, _>>().unwrap();
     let graph = create_graph(&lines);
 
