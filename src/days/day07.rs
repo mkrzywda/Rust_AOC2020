@@ -1,72 +1,74 @@
-
-use itertools::Itertools;
+use std::boxed::Box;
+use std::error::Error;
+use std::io::{BufReader, BufRead};
+use std::fs::File;
+use std::time::Instant;
+use std::collections::HashSet;
+use petgraph::graphmap::DiGraphMap;
+use petgraph::Direction;
 use regex::Regex;
-use std::collections::HashMap;
 
-type Bag<'a> = (&'a str, u64);
-type BagRule<'a> = HashMap<&'a str, Vec<Bag<'a>>>;
+pub fn day07() -> Result<(), Box<dyn Error>> {
+    let time = Instant::now();
 
-pub fn day07() -> anyhow::Result<()> {
-	let input = std::fs::read_to_string("day_7/input.txt")?;
+    let f = BufReader::new(File::open("/Users/administrator/aoc_sol/Advent-of-Code-2020/input/day07.txt").unwrap());
+    let lines: Vec<String> = f.lines().collect::<Result<_, _>>().unwrap();
+    let graph = create_graph(&lines);
 
-	let re = Regex::new(
-		r"^(?P<bag>\w+ \w+) bags contain |(?:(?P<contains>no other bags.)|(?P<quantity>\d+) (?P<inside_bag_name>\w+ \w+) bag(?:s)?(?:, )?)",
-	)?;
+    let sol_part_1 = compute_part_1(&graph, "shiny gold");
+    let sol_part_2 = compute_part_2(&graph, "shiny gold") - 1; // Exclude the shiny gold bag itself
 
-	let mut bags: BagRule = HashMap::new();
-	for line in input.lines() {
-		let captures = re.captures_iter(line).collect::<Vec<_>>();
+    let elapsed_ms = time.elapsed().as_nanos() as f64 / 1_000_000.0;
+    println!("Part 1: {}", sol_part_1);
+    println!("Part 2: {}", sol_part_2);
+    println!("Elapsed: {:.3} ms", elapsed_ms);
+    Ok(())
+}
 
-		let bag = captures[0].name("bag").unwrap().as_str();
-		let contains_bags = captures[1].name("contains").is_none();
-		if contains_bags {
-			for group in captures.into_iter().skip(1) {
-				let quantity = group
-					.name("quantity")
-					.unwrap()
-					.as_str()
-					.parse::<u64>()
-					.unwrap();
-				let inside_bag = group.name("inside_bag_name").unwrap().as_str();
-				bags.entry(&bag).or_default().push((inside_bag, quantity));
-			}
-		}
-	}
+///////////////////////////////////////////////////////////////////////////////
 
-	let mut part_1 = 0;
-	for (_, bags_inside) in bags.iter() {
-		let mut search_queue: Vec<&Bag> = Vec::new();
-		search_queue.extend(bags_inside);
-		let mut shiny_gold_count = 0;
-		while let Some((bag_name, _)) = search_queue.pop() {
-			if *bag_name == "shiny gold" {
-				shiny_gold_count += 1;
-			} else {
-				if let Some(v) = bags.get(bag_name) {
-					search_queue.extend(v);
-				}
-			}
-		}
-		if shiny_gold_count > 0 {
-			part_1 += 1;
-		}
-	}
-	println!("Part 1: {}", part_1);
+fn compute_part_1(graph: &DiGraphMap<&str, usize>, initial_node: &str) -> usize {
+    let mut visited_nodes: HashSet<&str> = HashSet::new();
+    let mut nodes_to_visit: Vec<&str> = graph
+        .neighbors_directed(initial_node, Direction::Incoming)
+        .collect();
 
-	let mut part_2: u64 = 0;
-	let mut search_queue: Vec<Bag> = Vec::new();
-	search_queue.extend(&bags["shiny gold"]);
-	while let Some((bag_name, quantity)) = search_queue.pop() {
-		part_2 += quantity;
-		if let Some(v) = bags.get(&bag_name) {
-			search_queue.extend(
-				v.iter()
-					.copied()
-					.update(|(_, v_quantity)| *v_quantity *= quantity),
-			);
-		}
-	}
-	println!("Part 2: {}", part_2);
+    while !nodes_to_visit.is_empty() {
+        let node = nodes_to_visit.pop().unwrap();
+        visited_nodes.insert(node);
+        nodes_to_visit.extend(graph
+            .neighbors_directed(node, Direction::Incoming)
+            .filter(|n| !visited_nodes.contains(n))
+        );
+    }
 
-	Ok(())
+    return visited_nodes.len();
+}
+
+fn compute_part_2(graph: &DiGraphMap<&str, usize>, initial_node: &str) -> usize {
+    let mut res = 1;
+
+    for node in graph.neighbors_directed(initial_node, Direction::Outgoing) {
+        res += graph.edge_weight(initial_node, node).unwrap() * compute_part_2(graph, node);
+    }
+
+    return res;
+}
+
+fn create_graph(lines: &Vec<String>) -> DiGraphMap<&str, usize> {
+    let re_outer = Regex::new(r"(.*) bags contain").unwrap();
+    let re_inner = Regex::new(r"(\d+) (.*?) bags?").unwrap();
+
+    let mut graph = DiGraphMap::new();
+
+    for line in lines {
+        let outer_color = re_outer.captures(&line).unwrap().get(1).unwrap().as_str();
+        for c in re_inner.captures_iter(&line) {
+            let num: usize = c[1].parse().unwrap();
+            let inner_color = c.get(2).unwrap().as_str();
+            graph.add_edge(outer_color, inner_color, num);
+        }
+    }
+
+    return graph;
 }
