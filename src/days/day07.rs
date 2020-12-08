@@ -7,6 +7,7 @@ use petgraph::graphmap::DiGraphMap;
 use petgraph::Direction;
 use regex::Regex;
 
+
 pub fn day07() -> Result<(), Box<dyn Error>> {ś
     let f = BufReader::new(File::open("in/day07.txt").unwrap());
     let lines: Vec<String> = f.lines().collect::<Result<_, _>>().unwrap();
