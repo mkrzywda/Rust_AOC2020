@@ -2,15 +2,12 @@ use std::boxed::Box;
 use std::error::Error;
 use std::io::{BufReader, BufRead};
 use std::fs::File;
-use std::time::Instant;
 use std::collections::HashSet;
 use petgraph::graphmap::DiGraphMap;
 use petgraph::Direction;
 use regex::Regex;
 
-pub fn day07() -> Result<(), Box<dyn Error>> {
-    let time = Instant::now();
-
+pub fn day07() -> Result<(), Box<dyn Error>> {ś
     let f = BufReader::new(File::open("in/day07.txt").unwrap());
     let lines: Vec<String> = f.lines().collect::<Result<_, _>>().unwrap();
     let graph = create_graph(&lines);
@@ -18,14 +15,10 @@ pub fn day07() -> Result<(), Box<dyn Error>> {
     let sol_part_1 = compute_part_1(&graph, "shiny gold");
     let sol_part_2 = compute_part_2(&graph, "shiny gold") - 1; // Exclude the shiny gold bag itself
 
-    let elapsed_ms = time.elapsed().as_nanos() as f64 / 1_000_000.0;
     println!("Part 1: {}", sol_part_1);
     println!("Part 2: {}", sol_part_2);
-    println!("Elapsed: {:.3} ms", elapsed_ms);
     Ok(())
 }
-
-///////////////////////////////////////////////////////////////////////////////
 
 fn compute_part_1(graph: &DiGraphMap<&str, usize>, initial_node: &str) -> usize {
     let mut visited_nodes: HashSet<&str> = HashSet::new();
