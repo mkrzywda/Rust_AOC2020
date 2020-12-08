@@ -9,7 +9,7 @@
 * [Day 5](src/days/day05.rs) | [Puzzle](in/day05)
 * [Day 6](src/days/day06.rs) | [Puzzle](in/day06)
 * [Day 7](src/days/day07.rs) | [Puzzle](in/day07)
-* Day 8
+* [Day 8](src/days/day08.rs) | [Puzzle](in/day08)]
 * Day 9
 * Day 10
 * Day 11
