@@ -1,4 +1,4 @@
-use std::boxed::Box;
+ use std::boxed::Box;
 use std::error::Error;
 use std::io::{BufReader, BufRead};
 use std::fs::File;
@@ -8,8 +8,8 @@ use petgraph::Direction;
 use regex::Regex;
 
 
-pub fn day07() -> Result<(), Box<dyn Error>> {ś
-    let f = BufReader::new(File::open("in/day07.txt").unwrap());
+pub fn day07() -> Result<(), Box<dyn Error>> {
+    let f = BufReader::new(File::open("in/day07").unwrap());
     let lines: Vec<String> = f.lines().collect::<Result<_, _>>().unwrap();
     let graph = create_graph(&lines);
 
