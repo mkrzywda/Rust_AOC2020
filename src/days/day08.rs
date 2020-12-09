@@ -65,7 +65,7 @@ pub fn day08() {
     let boot_code: Vec<&str> = str.lines().collect();
 
     println!(
-        "part1: {} ({}µs)",
+        "part1: {}",
         part1(&boot_code),
     );
 
