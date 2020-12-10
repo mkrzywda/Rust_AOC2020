@@ -55,6 +55,13 @@ fn main() {
         9 => {
             println!("Day09!\n");
             day09::day09();
+        },
+        
+        10 =>{
+            println!("Day10!\n");
+            day10::p1();
+            day10::p2();
+
         }
         _ => println!("Ain't special"),
     }
