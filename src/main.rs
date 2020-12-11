@@ -62,6 +62,14 @@ fn main() {
             day10::p1();
             day10::p2();
 
+        },
+
+        11 => {
+            println!("Day11!\n");
+            day11_part_a::day11_part_a();
+            day11_part_b::day11_part_b();
+
+            
         }
         _ => println!("Ain't special"),
     }

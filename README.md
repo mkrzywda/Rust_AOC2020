@@ -12,7 +12,7 @@
 * [Day 8](src/days/day08.rs) | [Puzzle](in/day08)
 * [Day 9](src/days/day09.rs) | [Puzzle](in/day09)
 * [Day 10](src/days/day10.rs) | [Puzzle](in/day10)
-* Day 11
+* [Day 11: Part A](src/days/day11_part_a.rs) | [Day 11: Part B](src/days/day11_part_b.rs) | [Puzzle](in/day11)
 * Day 12
 * Day 13
 * Day 14
