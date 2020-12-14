@@ -70,7 +70,15 @@ fn main() {
             day11_part_b::day11_part_b();
 
             
-        }
+        },
+        12 => {
+            println!("Day12!\n");
+            day12::day12();
+        },
+        13 => {
+            println!("Day13!\n");
+            day13::day13();
+        },
         _ => println!("Ain't special"),
     }
 
