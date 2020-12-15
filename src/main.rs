@@ -83,6 +83,10 @@ fn main() {
             println!("Day14!\n");
             day14::day14();
         },
+        15 => {
+            println!("Day15!\n");
+            day15::day15();
+        },
         _ => println!("Ain't special"),
     }
 
