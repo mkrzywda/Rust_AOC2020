@@ -4,8 +4,6 @@ use itertools::izip;
 use modinverse::modinverse;
 
 pub fn day13() {
-    let time = Instant::now();
-
     let f = BufReader::new(File::open("in/day13").unwrap());
     let (tstamp, buses, indices) = process_input(f);
 
