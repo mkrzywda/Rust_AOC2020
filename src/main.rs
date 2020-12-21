@@ -95,6 +95,28 @@ fn main() {
             println!("Day17!\n");
             day17::day17();
         },
+        18 => {
+            println!("Day18!\n");
+            day18::day18();
+        },
+        19 => {
+            println!("Day19!\n");
+        },
+        20 => {
+            println!("Day20\n");
+        },
+        21 => {
+            println!("Day21!\n");
+        },
+        22 => {
+            println!("Day22!\n");
+        },
+        23 => {
+            println!("Day23!\n");
+        },
+        24 => {
+            println!("Day24!\n");
+        },
 
         _ => println!("Ain't special"),
     }
