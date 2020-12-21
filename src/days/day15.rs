@@ -15,7 +15,6 @@ pub fn day15() {
     println!("Part 2: {}", p2);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 
 fn get_val(mem: &mut Vec<usize>, initial_turn: usize, final_turn: usize, initial_val: usize) -> usize {
     let mut last_num = initial_val;

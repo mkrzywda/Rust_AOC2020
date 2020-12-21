@@ -14,9 +14,9 @@
 * [Day 10](src/days/day10.rs) | [Puzzle](in/day10)
 * [Day 11: Part A](src/days/day11_part_a.rs) | [Day 11: Part B](src/days/day11_part_b.rs) | [Puzzle](in/day11)
 * [Day 12](src/days/day12.rs) | [Puzzle](in/day12)
-* [Day 13](src/days/day13.rs) | [Puzzle](in/day13)]
-* Day 14
-* Day 15
+* [Day 13](src/days/day13.rs) | [Puzzle](in/day13)
+* [Day 14](src/days/day14.rs) | [Puzzle](in/day14)
+* [Day 15](src/days/day15.rs) | [Puzzle](in/day15)
 * Day 16
 * Day 17
 * Day 18
