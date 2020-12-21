@@ -18,8 +18,8 @@
 * [Day 14](src/days/day14.rs) | [Puzzle](in/day14)
 * [Day 15](src/days/day15.rs) | [Puzzle](in/day15)
 * [Day 16](src/days/day16.rs) | [Puzzle](in/day16)
-* Day 17
-* Day 18
+* [Day 17](src/days/day17.rs) | [Puzzle](in/day17)
+* [Day 18](src/days/day18.rs) | [Puzzle](in/day18)
 * Day 19
 * Day 20
 * Day 21
