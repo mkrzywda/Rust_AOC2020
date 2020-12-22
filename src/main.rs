@@ -101,6 +101,7 @@ fn main() {
         },
         19 => {
             println!("Day19!\n");
+            day19::day19();
         },
         20 => {
             println!("Day20\n");
